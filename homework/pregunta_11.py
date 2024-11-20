@@ -16,3 +16,18 @@ def pregunta_11():
 
 
     """
+    data = {}
+
+    with open("./files/input/data.csv") as file:
+        for line in file:
+            columna = line.strip().split("\t")
+            letras = columna[3].split(",")
+            valor = columna[1]
+
+            for letra in letras:
+                if letra in data:
+                    data[letra] += int(valor)
+                else:
+                    data[letra] = int(valor)
+
+        return data

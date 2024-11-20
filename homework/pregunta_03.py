@@ -15,3 +15,20 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+    conteo = {}
+
+    with open("./files/input/data.csv") as file:
+        for line in file:
+            columna = line.strip().split("\t")
+            letra = columna[0]
+
+            if letra in conteo:
+                conteo[letra] += int(columna[1])
+
+            else:
+                conteo[letra] = int(columna[1])
+
+    return sorted(conteo.items())
+
+
+print(pregunta_03())
